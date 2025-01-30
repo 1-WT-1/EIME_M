@@ -1,0 +1,8 @@
+locale|en
+
+SHIP_EIME_M|Y® Model E (Modified)
+
+SHIP_EIME_M_DESC|The first commercially viable fusion craft, the Model E includes multiple ground-breaking innovations. Her signature fusion reactor and torches deliver unparalleled performance, and the halo of her liquid-droplet radiator is instantly recognizable. Her features include a semi-autonomous autopilot, huge reaction wheels using her propellant as reaction mass, and a cargo bay that can split open to enclose large payloads. \n\n  This variant replaces all RCS thrusters and main torches with eight fusion torches — their internals buried deep within to make room for an arrangement never meant to fit. The permanent install inadvertently boosted gimbal response. Swap them? Not without scrapping the whole ship. The reinforced reaction wheels groan under constant torque from eight gimbaling torches. They work—mostly, if you don't saturate them completly. \n  The excavator deploys only after sensors force adjacent torches to throttle down. Skip calibration, and you’ll weld torch to excavator in a union even plasma cutters struggle to undo. Rumors claim Y® scrapped her after a pilot’s final cry: “I’M A GODDAMN BAYBL—”. Yet here she flies: ambition’s cautionary tale. \n\n  WARNING: Docking without RCS demands a surgeon’s precision and patience. Maintain >25m clearance from station docks during final approach. ZAP exhaust will scorch infrastructure… and your docking privileges.
+
+SHIP_EIME_M_SPECS|Make: Y® R&D \nHigh-Stress Hardpoints: 1 \nLow-Stress Hardpoints: 2 \nTorches: 8 × Z-Axial Pinch fusion (non-swappable) \nCrew: 5 \nDry mass: 27,000 kg \nCargo bay: 140 m^3 \nProcessed cargo storage (per mineral): 11,000 kg
+
