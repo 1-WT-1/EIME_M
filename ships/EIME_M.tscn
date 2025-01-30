@@ -1,0 +1,167 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ships/EIME.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EIME_M/ships/modules/Torch_EIME_M.tscn" type="PackedScene" id=2]
+
+[node name="EIME_M" instance=ExtResource( 1 )]
+shipName = "SHIP_EIME_M"
+baseShipName = "SHIP_EIME_M"
+hullPrice = 15999
+autopilotComfortEnabled = false
+autopilotComfort = false
+autopilotMaxVelocity = 1950.0
+autopilotMaxVelocityLimit = 1950.0
+
+[node name="SYSTEM_REACTIONWHEEL" parent="." index="20"]
+maxRpm = 125.0
+rpmPS = 0.8
+whirlMax = 50
+whirlMaxVolume = -10
+
+[node name="SYSTEM_ACTEMD14" parent="WeaponSlot" index="19"]
+pivotPath = NodePath("Pivot")
+weaponPath = NodePath("Pivot/massdriver")
+audioPath = NodePath("Actuation")
+lightPath = NodePath("Pivot/Light")
+
+[node name="SYSTEM_ACL200P" parent="WeaponSlot" index="20"]
+weaponPath = NodePath("Pivot/laster-pulse")
+
+[node name="SYSTEM_PDMWG" parent="WeaponLeft" index="12"]
+weaponPath = NodePath("Pivot/emp")
+
+[node name="SYSTEM_ACTEMD14" parent="WeaponLeft" index="19"]
+pivotPath = NodePath("Pivot")
+weaponPath = NodePath("Pivot/massdriver")
+audioPath = NodePath("Actuation")
+lightPath = NodePath("Pivot/Light")
+
+[node name="SYSTEM_ACL200P" parent="WeaponLeft" index="20"]
+weaponPath = NodePath("Pivot/laster-pulse")
+
+[node name="SYSTEM_ACTEMD14" parent="WeaponRight" index="19"]
+pivotPath = NodePath("Pivot")
+weaponPath = NodePath("Pivot/massdriver")
+audioPath = NodePath("Actuation")
+lightPath = NodePath("Pivot/Light")
+
+[node name="SYSTEM_ACL200P" parent="WeaponRight" index="20"]
+weaponPath = NodePath("Pivot/laster-pulse")
+
+[node name="thruster-l" parent="." index="24"]
+visible = false
+type = ""
+command = ""
+default = ""
+
+[node name="thruster-lt" parent="." index="25"]
+visible = false
+type = ""
+command = ""
+default = ""
+
+[node name="thruster-lb" parent="." index="26"]
+visible = false
+type = ""
+command = ""
+default = ""
+
+[node name="thruster-r" parent="." index="27"]
+visible = false
+type = ""
+command = ""
+default = ""
+
+[node name="thruster-rt" parent="." index="28"]
+visible = false
+type = ""
+command = ""
+default = ""
+
+[node name="thruster-rb" parent="." index="29"]
+visible = false
+type = ""
+command = ""
+default = ""
+
+[node name="torch-l" parent="." index="30"]
+visible = false
+type = ""
+command = ""
+default = ""
+toggleCommand = ""
+
+[node name="torch-r" parent="." index="31"]
+visible = false
+type = ""
+command = ""
+default = ""
+toggleCommand = ""
+
+[node name="reactor" parent="." index="32"]
+visible = false
+
+[node name="B-torch-l1" parent="." index="35" instance=ExtResource( 2 )]
+position = Vector2( -59, 103 )
+rotation = 1.39626
+extraGimbal = 0.25
+command = "mlb"
+
+[node name="B-torch-l2" parent="." index="36" instance=ExtResource( 2 )]
+position = Vector2( -59, 103 )
+rotation = -0.349066
+command = "mr"
+
+[node name="B-torch-r1" parent="." index="37" instance=ExtResource( 2 )]
+position = Vector2( 59, 103 )
+rotation = -1.39626
+extraGimbal = 0.25
+command = "mlb"
+
+[node name="B-torch-r2" parent="." index="38" instance=ExtResource( 2 )]
+position = Vector2( 59, 103 )
+rotation = 0.349066
+command = "ml"
+
+[node name="B-thruster-lb" parent="." index="39" instance=ExtResource( 2 )]
+position = Vector2( -100, -2 )
+rotation = 0.785398
+scale = Vector2( 0.95, 0.75 )
+extraGimbal = -0.1
+command = ">rf"
+toggleCommand = ""
+
+[node name="B-thruster-lt" parent="." index="40" instance=ExtResource( 2 )]
+position = Vector2( -100, -2 )
+rotation = 2.35619
+scale = Vector2( 0.95, 0.75 )
+extraGimbal = -0.1
+command = ">lb"
+toggleCommand = ""
+
+[node name="B-thruster-rb" parent="." index="41" instance=ExtResource( 2 )]
+position = Vector2( 100, -2 )
+rotation = -0.785398
+scale = Vector2( 0.95, 0.75 )
+extraGimbal = -0.1
+command = "<lf"
+toggleCommand = ""
+
+[node name="B-thruster-rt" parent="." index="42" instance=ExtResource( 2 )]
+position = Vector2( 100, -2 )
+rotation = -2.35619
+scale = Vector2( 0.95, 0.75 )
+extraGimbal = -0.1
+command = "<rb"
+toggleCommand = ""
+
+[editable path="Noises"]
+[editable path="AI"]
+[editable path="Beak/Claw Right/MineralProcessingUnit"]
+[editable path="Beak/Claw Left/MineralProcessingUnit_SMELT"]
+[editable path="Beak/Claw Left/MineralProcessingUnit_FAB"]
+[editable path="MineralProcessingUnit_DRY"]
+[editable path="MineralProcessingUnit_FSO"]
+[editable path="WeaponSlot"]
+[editable path="WeaponLeft"]
+[editable path="WeaponRight"]
