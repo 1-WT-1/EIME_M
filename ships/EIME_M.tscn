@@ -116,7 +116,7 @@ command = "mr"
 position = Vector2( 59, 103 )
 rotation = -1.39626
 extraGimbal = 0.25
-command = "mlb"
+command = "mrb"
 
 [node name="B-torch-r2" parent="." index="38" instance=ExtResource( 2 )]
 position = Vector2( 59, 103 )
