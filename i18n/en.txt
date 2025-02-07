@@ -6,3 +6,4 @@ SHIP_EIME_M_DESC|The first commercially viable fusion craft, the Model E include
 
 SHIP_EIME_M_SPECS|Make: Elon Interstellar R&D \nHigh-Stress Hardpoints: 1 \nLow-Stress Hardpoints: 2 \nTorches: 8 × Z-Axial Pinch fusion (non-swappable) \nCrew: 5 \nDry mass: 27,000 kg \nCargo bay: 140 m^3 \nProcessed cargo storage (per mineral): 11,000 kg
 
+EIME_M_MOD_DESCRIPTION|Adds a new Model E variant that removes all RCS mountings, and replaces them with 6 additional ZAPs, and makes all ZAP fittings unremovable. Also supports the Y® translation mod 

@@ -12,6 +12,12 @@ autopilotComfort = false
 autopilotMaxVelocity = 1950.0
 autopilotMaxVelocityLimit = 1950.0
 
+[node name="Hull" parent="." index="4"]
+hullCustomPaintFile = "user://custom-eime_m.png"
+
+[node name="Underhull" parent="." index="5"]
+hullCustomPaintFile = "user://custom-eime_m.png"
+
 [node name="SYSTEM_REACTIONWHEEL" parent="." index="20"]
 maxRpm = 125.0
 rpmPS = 0.8
@@ -97,9 +103,6 @@ type = ""
 command = ""
 default = ""
 toggleCommand = ""
-
-[node name="reactor" parent="." index="32"]
-visible = false
 
 [node name="B-torch-l1" parent="." index="35" instance=ExtResource( 2 )]
 position = Vector2( -59, 103 )

@@ -1,7 +1,7 @@
 extends "res://Settings.gd"
 
 # Mod version
-const EIME_M_VERSION = "0.2.0"
+const EIME_M_VERSION = "0.3.0"
 
 
 # You may want to change many of the variable names to provide a unique identifier
