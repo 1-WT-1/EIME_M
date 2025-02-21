@@ -4,7 +4,7 @@ extends Node
 # Mods are loaded from lowest to highest priority, default is 0
 const MOD_PRIORITY = 10
 # Name of the mod, used for writing to the logs
-const MOD_NAME = "EIME M"
+const MOD_NAME = "EIME_M"
 # Path of the mod folder, automatically generated on runtime
 var modPath:String = get_script().resource_path.get_base_dir() + "/"
 # Required var for the replaceScene() func to work
@@ -34,7 +34,9 @@ func _init(modLoader = ModLoader):
 	#and modDependancy.has("Derelict-Delights-1.4.1.zip"):
 		installScriptExtension("CurrentGame.gd")
 		l("Added EIME_M to used ship pool")
+	
 	installScriptExtension("ships/Shipyard.gd")
+	
 	l("Initialized")
 
 # Do stuff on ready
@@ -42,13 +44,14 @@ func _init(modLoader = ModLoader):
 func _ready():
 	l("Readying")
 	replaceScene("ships/EIME_M.tscn") #Had to load on ready because of inheritance
+	
+	updateTL("i18n/en.txt", "|")
+	updateTL("i18n/ua.txt", "|")
+	
 	if modDependancy.has("Y.zip") and modConfig["settings"]["EIRename-Y"]:
 		updateTL("i18n/Yen.txt", "|")
 		updateTL("i18n/Yua.txt", "|")
 		l("EI Renamed to Y") 
-	else:
-		updateTL("i18n/en.txt", "|")
-		updateTL("i18n/ua.txt", "|")
 	l("Ready")
 	
 # Helper script to load translations using csv format
