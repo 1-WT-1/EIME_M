@@ -5,14 +5,17 @@ extends Node
 const MOD_PRIORITY = 10
 # Name of the mod, used for writing to the logs
 const MOD_NAME = "EIME_M"
+const MOD_VERSION_MAJOR = 0
+const MOD_VERSION_MINOR = 4
+const MOD_VERSION_BUGFIX = 0
+const MOD_VERSION_METADATA = ""
 # Path of the mod folder, automatically generated on runtime
 var modPath:String = get_script().resource_path.get_base_dir() + "/"
 # Required var for the replaceScene() func to work
 var _savedObjects := []
 
-var modConfig = {}
-# Initializes the configuration variable. Used by loadSettings.
-
+# Load the HevLib ConfigDriver
+var ConfigDriver = load("res://HevLib/pointers/ConfigDriver.gd")
 
 # Initialize the mod
 # This function is executed before the majority of the game is loaded
@@ -20,9 +23,6 @@ var modConfig = {}
 # Script and scene replacements should be done here, before the originals are loaded
 func _init(modLoader = ModLoader):
 	l("Initializing")
-	# Modify Settings.gd first so we can load config and DLC
-	installScriptExtension("Settings.gd")
-	loadSettings()
 	
 	loadDLC() 
 	
@@ -30,7 +30,7 @@ func _init(modLoader = ModLoader):
 
 	replaceScene("enceladus/Upgrades.tscn") #adding EIME_M Specific Torch
 	
-	if modConfig["settings"]["addToUsedShipPool"]:
+	if ConfigDriver.__get_value("EIME_M", "EIME_M_CONFIG_OPTIONS", "addToUsedShipPool"):
 	#and modDependancy.has("Derelict-Delights-1.4.1.zip"):
 		installScriptExtension("CurrentGame.gd")
 		l("Added EIME_M to used ship pool")
@@ -48,7 +48,7 @@ func _ready():
 	updateTL("i18n/en.txt", "|")
 	updateTL("i18n/ua.txt", "|")
 	
-	if modDependancy.has("Y.zip") and modConfig["settings"]["EIRename-Y"]:
+	if modDependancy.has("Y.zip") and ConfigDriver.__get_value("EIME_M", "EIME_M_CONFIG_OPTIONS", "EIRename-Y"):
 		updateTL("i18n/Yen.txt", "|")
 		updateTL("i18n/Yua.txt", "|")
 		l("EI Renamed to Y") 
@@ -133,19 +133,10 @@ func loadDLC():
 
 
 # Func to print messages to the logs
-func l(msg:String, title:String = MOD_NAME):
-	Debug.l("[%s]: %s" % [title, msg])
-
-
-func loadSettings():
-	l(MOD_NAME + ": Loading mod settings")
-	var settings = load("res://Settings.gd").new()
-	settings.loadEIME_M_FromFile()
-	settings.saveEIME_M_ToFile()
-	modConfig = settings.EIME_M_Config
-	l(MOD_NAME + ": Current settings: %s" % modConfig)
-	settings.queue_free()
-	l(MOD_NAME + ": Finished loading settings")
+func l(msg:String, title:String = MOD_NAME, version:String = str(MOD_VERSION_MAJOR) + "." + str(MOD_VERSION_MINOR) + "." + str(MOD_VERSION_BUGFIX)):
+	if not MOD_VERSION_METADATA == "":
+		version = version + "-" + MOD_VERSION_METADATA
+	Debug.l("[%s V%s]: %s" % [title, version, msg])
 	
 	
 var modDependancy = []

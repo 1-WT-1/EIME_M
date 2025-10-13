@@ -1,16 +1,48 @@
-[package]
-
+[mod_information]
 id="wt.EIME_M"
-name="EIME M"
-version="0.3.0"
+name="EIME_M"
 description="EIME_M_MOD_DESCRIPTION"
-group="ships"
-github_homepage="https://github.com/1-WT-1/EIME_M"
-github_releases="https://github.com/1-WT-1/EIME_M/releases"
-discord_thread="https://discord.com/channels/426287934870781952/1334554761751429120"
-nexus_page=""
-donations_page=""
-wiki_page="https://delta-v.kodera.pl/index.php/Mod_List#EIME_M"
-nexus_page=""
-custom_link=""
-custom_link_name=""
+brief="EIME_M_MOD_BRIEF"
+author="WT"
+credits=[""]
+
+[version]
+version_major=0
+version_minor=4
+version_bugfix=0
+
+[tags]
+
+TAG_ALLOW_ACHIEVEMENTS={"type":"bool","value":true}
+TAG_QOL={"type":"bool","value":true}
+
+[languages]
+
+en="100%"
+uk_UA="100%"
+
+[links]
+
+HEVLIB_GITHUB={"URL":"https://github.com/1-WT-1/EIME_M"}
+HEVLIB_DISCORD={"URL":"https://discord.com/channels/426287934870781952/1334554761751429120"}
+
+[configs]
+EIME_M_CONFIG_OPTIONS={
+    "EIRename-Y":{
+        "name":"EIME_M_CONFIG_EIRENAME_Y_NAME",
+        "description":"EIME_M_CONFIG_EIRENAME_Y_DESC",
+        "type":"bool",
+        "default":true
+    },
+    "addToUsedShipPool":{
+        "name":"EIME_M_CONFIG_ADD_TO_USED_SHIP_POOL_NAME",
+        "description":"EIME_M_CONFIG_ADD_TO_USED_SHIP_POOL_DESC",
+        "type":"bool",
+        "default":true
+    }
+}
+
+[manifest_definitions]
+manifest_version=2.2
+dependancy_mod_ids=["hev.LIBRARY"]
+manifest_url="https://raw.githubusercontent.com/1-WT-1/EIME_M/refs/heads/main/Mod.manifest"
