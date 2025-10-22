@@ -7,7 +7,7 @@ const MOD_PRIORITY = 10
 const MOD_NAME = "EIME_M"
 const MOD_VERSION_MAJOR = 0
 const MOD_VERSION_MINOR = 4
-const MOD_VERSION_BUGFIX = 0
+const MOD_VERSION_BUGFIX = 1
 const MOD_VERSION_METADATA = ""
 # Path of the mod folder, automatically generated on runtime
 var modPath:String = get_script().resource_path.get_base_dir() + "/"
@@ -30,8 +30,8 @@ func _init(modLoader = ModLoader):
 
 	replaceScene("enceladus/Upgrades.tscn") #adding EIME_M Specific Torch
 	
-	if ConfigDriver.__get_value("EIME_M", "EIME_M_CONFIG_OPTIONS", "addToUsedShipPool"):
-	#and modDependancy.has("Derelict-Delights-1.4.1.zip"):
+	var config = ConfigDriver.__get_config("EIME_M")
+	if config.get("EIME_M_CONFIG_OPTIONS",{}).get("addToUsedShipPool",true):
 		installScriptExtension("CurrentGame.gd")
 		l("Added EIME_M to used ship pool")
 	

@@ -9,12 +9,9 @@ credits=[""]
 [version]
 version_major=0
 version_minor=4
-version_bugfix=0
+version_bugfix=1
 
 [tags]
-
-TAG_ALLOW_ACHIEVEMENTS={"type":"bool","value":true}
-TAG_QOL={"type":"bool","value":true}
 
 [languages]
 
