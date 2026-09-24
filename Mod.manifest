@@ -1,45 +1,53 @@
 [mod_information]
-id="wt.EIME_M"
+
 name="EIME_M"
+id="wt.EIME_M"
 description="EIME_M_MOD_DESCRIPTION"
 brief="EIME_M_MOD_BRIEF"
 author="WT"
-credits=[""]
+credits=PoolStringArray( "" )
 
 [version]
+
 version_major=0
-version_minor=4
-version_bugfix=1
-
-[tags]
-
-[languages]
-
-en="100%"
-uk_UA="100%"
+version_minor=5
+version_bugfix=0
 
 [links]
 
-HEVLIB_GITHUB={"URL":"https://github.com/1-WT-1/EIME_M"}
-HEVLIB_DISCORD={"URL":"https://discord.com/channels/426287934870781952/1334554761751429120"}
+HEVLIB_GITHUB={
+"URL": "https://github.com/1-WT-1/EIME_M"
+}
+HEVLIB_DISCORD={
+"URL": "https://discord.com/channels/426287934870781952/1334554761751429120"
+}
 
 [configs]
+
 EIME_M_CONFIG_OPTIONS={
-    "EIRename-Y":{
-        "name":"EIME_M_CONFIG_EIRENAME_Y_NAME",
-        "description":"EIME_M_CONFIG_EIRENAME_Y_DESC",
-        "type":"bool",
-        "default":true
-    },
-    "addToUsedShipPool":{
-        "name":"EIME_M_CONFIG_ADD_TO_USED_SHIP_POOL_NAME",
-        "description":"EIME_M_CONFIG_ADD_TO_USED_SHIP_POOL_DESC",
-        "type":"bool",
-        "default":true
-    }
+"EIRename-Y": {
+"default": true,
+"description": "EIME_M_CONFIG_EIRENAME_Y_DESC",
+"display_order_position": 0,
+"name": "EIME_M_CONFIG_EIRENAME_Y_NAME",
+"type": "bool"
+},
+"addToUsedShipPool": {
+"default": true,
+"description": "EIME_M_CONFIG_ADD_TO_USED_SHIP_POOL_DESC",
+"display_order_position": 1,
+"name": "EIME_M_CONFIG_ADD_TO_USED_SHIP_POOL_NAME",
+"type": "bool"
+}
 }
 
 [manifest_definitions]
+
 manifest_version=2.2
-dependancy_mod_ids=["hev.LIBRARY"]
+dependancy_mod_ids=[ {
+"blocking": true,
+"mod_id": "hev.LIBRARY"
+} ]
 manifest_url="https://raw.githubusercontent.com/1-WT-1/EIME_M/refs/heads/main/Mod.manifest"
+changelog_path="changelog.txt"
+modlet_priority=10
