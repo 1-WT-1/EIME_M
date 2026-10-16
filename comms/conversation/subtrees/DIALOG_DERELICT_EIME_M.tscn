@@ -1,0 +1,259 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://comms/ConversationPlayer.gd" type="Script" id=1]
+
+[node name="DIALOG_DERELICT_EIME_M_FOUND" type="Node"]
+script = ExtResource( 1 )
+agendaNPC = true
+cantSeeFaction = "helper"
+agenda = "RANDOM"
+
+[node name="DIALOG_DERELICT_EIME_M_LEAVE" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+agendaNPC = true
+agenda = "PREVIOUS"
+
+[node name="DIALOG_DERELICT_GO_AND_BRING_IT" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+agendaNPC = true
+agenda = "PREVIOUS"
+
+[node name="DIALOG_DERELICT_EIME_M_EVA_START" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT"]
+script = ExtResource( 1 )
+agendaNPC = true
+testTheTarget = true
+evaTime = 19.0
+changeFactionTo = "player"
+evaDirection = -1.0
+agenda = "PREVIOUS"
+
+[node name="DIALOG_DERELICT_EIME_M_EVA_ONBOARD" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT/DIALOG_DERELICT_EIME_M_EVA_START"]
+script = ExtResource( 1 )
+agendaNPC = true
+conjureReactiveMass = 15000.0
+agenda = "PREVIOUS"
+tuningAdjust = "TUNE_TARGET_TEMPERATURE"
+tuningAdjustTo = 1500.0
+aiImperativeStrenght = 1000.0
+aiImperative = 10
+
+[node name="DIALOG_DERELICT_EIME_M_EVA_SUCCESS" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT/DIALOG_DERELICT_EIME_M_EVA_START/DIALOG_DERELICT_EIME_M_EVA_ONBOARD"]
+script = ExtResource( 1 )
+agendaNPC = true
+agenda = "PREVIOUS"
+deactivateAgendaMember = true
+deactivateAgendaMemeberTemporary = true
+leaveOnReturn = false
+getThisShip = true
+tuningAdjust = "TUNE_TARGET_TEMPERATURE"
+tuningAdjustTo = 3500.0
+aiSetTargetAsImperative = true
+aiImperativeStrenght = 20.0
+aiImperative = 8
+
+[node name="DIALOG_DERELICT_EIME_M_EVA_FAIL" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT/DIALOG_DERELICT_EIME_M_EVA_START/DIALOG_DERELICT_EIME_M_EVA_ONBOARD"]
+script = ExtResource( 1 )
+weight = 0.3
+agendaNPC = true
+changeFactionTo = "helpless"
+evaDirection = 1.0
+agenda = "PREVIOUS"
+leaveOnReturn = false
+damageEmp = 10000
+damageKinetic = 50000
+damagePoint = Vector2( 0, 100 )
+damageRandom = 20.0
+aiSetTargetAsImperative = true
+aiImperativeStrenght = 20.0
+aiImperative = 12
+
+[node name="DIALOG_DERELICT_EIME_M_EVA_INJURY_1" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT/DIALOG_DERELICT_EIME_M_EVA_START/DIALOG_DERELICT_EIME_M_EVA_ONBOARD"]
+script = ExtResource( 1 )
+weight = 0.3
+agendaNPC = true
+changeFactionTo = "helpless"
+evaDirection = 1.0
+agenda = "PREVIOUS"
+addAgendaLeaveTime = 30
+leaveOnReturn = false
+damageEmp = 13000
+damageHeat = 100000
+damageKinetic = 30000
+damagePoint = Vector2( 0, 100 )
+damageRandom = 20.0
+aiSetTargetAsImperative = true
+aiImperativeStrenght = 10.0
+aiImperative = 12
+disableAI = true
+
+[node name="DIALOG_DERELICT_EIME_M_EVA_INJURY_2" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT/DIALOG_DERELICT_EIME_M_EVA_START/DIALOG_DERELICT_EIME_M_EVA_ONBOARD"]
+script = ExtResource( 1 )
+weight = 0.3
+agendaNPC = true
+changeFactionTo = "helpless"
+evaDirection = 1.0
+agenda = "PREVIOUS"
+addAgendaLeaveTime = 60
+leaveOnReturn = false
+damageEmp = 20000
+damageHeat = 30000
+damageKinetic = 100000
+damagePoint = Vector2( 0, 100 )
+damageRandom = 20.0
+aiSetTargetAsImperative = true
+aiImperativeStrenght = 20.0
+aiImperative = 12
+disableAI = true
+
+[node name="DIALOG_DERELICT_EIME_M_EVA_I_GUESS" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT"]
+script = ExtResource( 1 )
+agendaNPC = true
+testTheTarget = true
+evaTime = 19.0
+changeFactionTo = "player"
+evaDirection = -1.0
+importChildren = NodePath("../DIALOG_DERELICT_EIME_M_EVA_START")
+agenda = "PREVIOUS"
+
+[node name="DIALOG_DERELICT_EIME_M_EVA_RECONSIDER" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT"]
+script = ExtResource( 1 )
+agendaNPC = true
+testTheTarget = true
+changeFactionTo = "player"
+agenda = "PREVIOUS"
+
+[node name="dangerous" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT/DIALOG_DERELICT_EIME_M_EVA_RECONSIDER"]
+script = ExtResource( 1 )
+alias = NodePath("../../../DIALOG_DERELICT_EIME_M_LEAVE")
+agenda = "PREVIOUS"
+
+[node name="DIALOG_DERELICT_EIME_M_EVA_STILL_WORTH_A_LOT" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT/DIALOG_DERELICT_EIME_M_EVA_RECONSIDER"]
+script = ExtResource( 1 )
+myLine = false
+agendaNPC = true
+agenda = "PREVIOUS"
+
+[node name="onboard2" type="Node" parent="DIALOG_DERELICT_GO_AND_BRING_IT/DIALOG_DERELICT_EIME_M_EVA_RECONSIDER/DIALOG_DERELICT_EIME_M_EVA_STILL_WORTH_A_LOT"]
+script = ExtResource( 1 )
+alias = NodePath("../../../DIALOG_DERELICT_EIME_M_EVA_START")
+agenda = "PREVIOUS"
+
+[node name="DIALOG_DERELICT_IMPATIENT_CONTINUE" type="Node" parent="."]
+script = ExtResource( 1 )
+agendaNPC = true
+importChildren = NodePath("..")
+agenda = "PREVIOUS"
+storyFlag = "impatience"
+storyFlagMax = 0
+storyFlagIncrement = 1
+temporaryStory = true
+
+[node name="DIALOG_DERELICT_IMPATIENT_ABORT" type="Node" parent="."]
+script = ExtResource( 1 )
+agendaNPC = true
+resetCuriosity = true
+agenda = "PREVIOUS"
+storyFlag = "impatience"
+storyFlagMin = 1
+temporaryStory = true
+damageKinetic = 100000
+damagePoint = Vector2( 0, 100 )
+damageRandom = 20.0
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|0" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/0"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|1" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/1"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|2" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/2"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|3" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/3"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|4" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/4"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|5" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/5"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|6" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/6"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|7" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/7"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|8" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/8"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|9" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/9"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|10" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/10"
+agendaNotSame = true
+
+[node name="DIALOG_DERELICT_SWITCH_CREW|11" type="Node" parent="."]
+script = ExtResource( 1 )
+myLine = false
+faceless = true
+importChildren = NodePath("../DIALOG_DERELICT_GO_AND_BRING_IT")
+agenda = "CREW/11"
+agendaNotSame = true

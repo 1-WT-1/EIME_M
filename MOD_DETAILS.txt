@@ -1,0 +1,8 @@
+;MOD_ID|wt.EIME_M
+;MOD_NAME|EIME_M
+;MOD_ICON|https://raw.githubusercontent.com/1-WT-1/EIME_M/refs/heads/main/icon.png
+;MOD_ZIP_NAME|EIME_M.zip
+
+[center][b]EIME_M[/b][/center]
+
+Adds a new Model E variant that removes all RCS mountings, and replaces them with 6 additional ZAPs, and makes all ZAP fittings unremovable.
